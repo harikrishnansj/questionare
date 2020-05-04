@@ -1,0 +1,80 @@
+<html>
+<head>
+    <title>AWS Questionare</title>
+</head>
+<body onload="populateSelect()">
+    <!--<p>
+        <input type="button" 
+            onclick="populateSelect()" 
+                value="Click to Populate SELECT with JSON" />
+    </p>-->
+
+    <!--The SELECT element.-->
+	<div id="questionsDiv">
+    <!--<select id="sel" onclick="show(this)" multiple>
+        <option value="">-- Select --</option>
+    </select>
+	</div>-->
+    <p id="msg"></p>
+</body>
+
+<script>
+    function populateSelect() {
+        // THE JSON ARRAY.
+        /*var birds = [
+            {"ID": "001", "Bird_Name": "Eurasian Collared-Dove"},
+            {"ID": "002", "Bird_Name": "Bald Eagle"},
+            {"ID": "003", "Bird_Name": "Cooper's Hawk"},
+        ];*/
+		
+		var bird = [{"sampleText":"How are you encrypting and protecting your data in transit<br/>Description :- A best practice is to protect data in transit by using encryption. AWS uses encrypted end-points for the service APIs. Additionally customer can use various techniques within their Amazon EC2 instances.",
+		"birds":[
+            {"ID": "001", "Bird_Name": "Not protected"},
+            {"ID": "002", "Bird_Name": "SSL for APIs"},
+            {"ID": "003", "Bird_Name": "Encrypted communications"},
+			{"ID": "004", "Bird_Name": "VPN"},
+            {"ID": "005", "Bird_Name": "Private connectivity"},
+            {"ID": "006", "Bird_Name": "AWS marketplace or partner solution"},
+        ]},
+		{"sampleText":"Helloooooooooooooo222",
+		"birds":[
+            {"ID": "001", "Bird_Name": "222Eurasian Collared-Dove"},
+            {"ID": "002", "Bird_Name": "222Bald Eagle"},
+            {"ID": "003", "Bird_Name": "22Cooper's Hawk"},
+        ]}
+		];
+
+        var ele = document.getElementById('questionsDiv');
+		var temp;
+		for (var j = 0; j < bird.length; j++) {
+		ele.innerHTML = ele.innerHTML +
+		'<br/>'+bird[j]['sampleText']+
+					'<br/><select id="sel'+j+'" onclick="show(this)" multiple/><br/>';
+		}
+		for (var j = 0; j < bird.length; j++) {
+		temp = bird[j]['birds'];
+		
+		ele = document.getElementById("sel"+j+"");
+			for (var i = 0; i < temp.length; i++) {
+				// POPULATE SELECT ELEMENT WITH JSON.
+				ele.innerHTML = ele.innerHTML +
+					'<option value="' + temp[i]['ID'] + '">' + temp[i]['Bird_Name'] + '</option>';
+					console.log('**********'+i);
+					/*if(i = temp.length){
+					console.log('Close select');
+					ele.innerHTML = ele.innerHTML +'</select>';
+					}*/
+			}
+			/*console.log('Close select');
+			ele.innerHTML = ele.innerHTML +'</select>';*/
+		}
+    }
+
+    function show(ele) {
+        // GET THE SELECTED VALUE FROM <select> ELEMENT AND SHOW IT.
+        var msg = document.getElementById('msg');
+        msg.innerHTML = 'Selected Bird: <b>' + ele.options[ele.selectedIndex].text + '</b> </br>' +
+            'ID: <b>' + ele.value + '</b>';
+    }
+</script>
+</html>
