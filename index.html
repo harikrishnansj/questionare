@@ -2,74 +2,357 @@
 <head>
     <title>AWS Questionare</title>
 </head>
-<body onload="populateSelect()">
-    
+<style>
+p.ex1 {
+  border: 1px solid red; 
+  padding: 35px;
 
+
+</style>
+<body onload="populateSelect()">
+	<h1 align="center">AWS Questionare</h1>
     <!--The SELECT element.-->
 	<div id="questionsDiv">
-    <!--<select id="sel" onclick="show(this)" multiple>
-        <option value="">-- Select --</option>
-    </select>
-	</div>-->
     <p id="msg"></p>
 </body>
 
 <script>
     function populateSelect() {
-        // THE JSON ARRAY.
-        /*var birds = [
-            {"ID": "001", "Bird_Name": "Eurasian Collared-Dove"},
-            {"ID": "002", "Bird_Name": "Bald Eagle"},
-            {"ID": "003", "Bird_Name": "Cooper's Hawk"},
-        ];*/
-		
-		var bird = [{"sampleText":"How are you encrypting and protecting your data in transit<br/>Description :- A best practice is to protect data in transit by using encryption. AWS uses encrypted end-points for the service APIs. Additionally customer can use various techniques within their Amazon EC2 instances.",
-		"birds":[
-            {"ID": "001", "Bird_Name": "Not protected"},
-            {"ID": "002", "Bird_Name": "SSL for APIs"},
-            {"ID": "003", "Bird_Name": "Encrypted communications"},
-			{"ID": "004", "Bird_Name": "VPN"},
-            {"ID": "005", "Bird_Name": "Private connectivity"},
-            {"ID": "006", "Bird_Name": "AWS marketplace or partner solution"},
+        // THE JSON ARRAY.		
+		var questions = [{"question":"How are you encrypting and protecting your data in transit?<br/>Description :- A best practice is to protect data in transit by using encryption. AWS uses encrypted end-points for the service APIs. Additionally customer can use various techniques within their Amazon EC2 instances.",
+		"options":[
+            {"ID": "001", "Option_Name": "Not protected"},
+            {"ID": "002", "Option_Name": "SSL for APIs"},
+            {"ID": "003", "Option_Name": "Encrypted communications"},
+			{"ID": "004", "Option_Name": "VPN"},
+            {"ID": "005", "Option_Name": "Private connectivity"},
+            {"ID": "006", "Option_Name": "AWS marketplace or partner solution"}
         ]},
-		{"sampleText":"Helloooooooooooooo222",
-		"birds":[
-            {"ID": "001", "Bird_Name": "222Eurasian Collared-Dove"},
-            {"ID": "002", "Bird_Name": "222Bald Eagle"},
-            {"ID": "003", "Bird_Name": "22Cooper's Hawk"},
+		{"question":"How are you protecting access and use of the AWS root account??<br/>Description :- The AWS root account credentials are similar to root or local admin in other operating systems and should be used very sparingly. The current best practice is to create AWS Identity and Access management (IAM) users, associate them to an administrator group, and use the IAM user to manage the account. The AWS root account should not have API keys, should have a strong password and should be associated with a hardware multi-factor authentication(MFA) device; this forces the only use of the root identity to be via the AWS management console and does not allow it to be used for application programming interface(API) calls. Note that some resellers or regions do not distribute or support the AWS root account credentials",
+		"options":[
+            {"ID": "001", "Option_Name": "Actively using"},
+            {"ID": "002", "Option_Name": "Minimal Use"},
+            {"ID": "003", "Option_Name": "AWS Marketplace or Partner"},
+			{"ID": "004", "Option_Name": "MFA"}
+        ]},
+		{"question":"How are your defining roles and responsibilities of system users to control human access to the AWS management console and API??<br/>Description :- The current best practice is for customers to segregate defined roles and responsibilities of system users by creating user groups. User groups can be defined using several different technologies, Identity and Access Management (IAM) groups, IAM roles for cross-account access, web identities, via Security Assertion Markup Language (SAML) integration (For example: defining roles in Active Directory), or by using a third party solution (For example: Okta, Ping identity, or another custom technique) which usually integrates via either SAML or AWS Security Token service. Using shared account is strongly discouraged.",
+		"options":[
+            {"ID": "001", "Option_Name": "Shared credentials"},
+            {"ID": "002", "Option_Name": "IAM Users and Groups"},
+            {"ID": "003", "Option_Name": "SAML integration"},
+			{"ID": "004", "Option_Name": "Web Identity Federation"},
+            {"ID": "005", "Option_Name": "AWS security Token Service"},
+            {"ID": "006", "Option_Name": "IAM Cross-Account"},
+			{"ID": "007", "Option_Name": "AWS Marketplace or Partner Solution"},
+            {"ID": "008", "Option_Name": "Employee Life-Cycle"},
+            {"ID": "009", "Option_Name": "Minimum privileges"}
+        ]},
+		{"question":"How are you limiting automated access to AWS resources?  (For example: applications, scripts, and/or third party tool or service)<br/>Description :- Systematic access should be accessible in similar ways as users groups are created for people. For Amazon EC2 instances, these groups are called IAM roles for EC2. The current best practice is to use IAM roles for EC2 and AWS SDK or CLI, which has built-in support for retrieving the IAM roles for EC2 credentials. Traditionally, user credentials are injected into EC2 instances, but hard-coding the credentials into scripts and source code are discouraged.",
+		"options":[
+            {"ID": "001", "Option_Name": "Root identity used"},
+            {"ID": "002", "Option_Name": "Hardcoded IAM credentials"},
+            {"ID": "003", "Option_Name": "IAM Roles"},
+			{"ID": "004", "Option_Name": "IAM User Credentials"},
+            {"ID": "005", "Option_Name": "AML integration"},
+            {"ID": "006", "Option_Name": "AWS Security Token Service"},
+            {"ID": "007", "Option_Name": "OS-specific"},
+            {"ID": "008", "Option_Name": "AWS MarketPlace or Partner Solution"}
+        ]},
+		{"question":"How are you managing keys and credentials?<br/>Description :- Keys and credentials are secrets that should be protected, and an appropriate rotation policy should be defined and used. The best practice is to not hard code these secrets into management scripts and applications but is does not occur.",
+		"options":[
+            {"ID": "001", "Option_Name": "Embedded in Code"},
+            {"ID": "002", "Option_Name": "No Rotation Policy"},
+            {"ID": "003", "Option_Name": "AWS CloudHRM"},
+			{"ID": "004", "Option_Name": "AWS Server-side"},
+            {"ID": "005", "Option_Name": "AWS Marketplace or Partner solution"},
+            {"ID": "006", "Option_Name": "Rotation Policy"}
+        ]},
+		{"question":"?<br/>Description :- ",
+		"options":[
+            {"ID": "001", "Option_Name": ""},
+            {"ID": "002", "Option_Name": ""},
+            {"ID": "003", "Option_Name": ""},
+			{"ID": "004", "Option_Name": ""},
+            {"ID": "005", "Option_Name": ""},
+            {"ID": "006", "Option_Name": ""}
+        ]},
+		{"question":"?<br/>Description :- ",
+		"options":[
+            {"ID": "001", "Option_Name": ""},
+            {"ID": "002", "Option_Name": ""},
+            {"ID": "003", "Option_Name": ""},
+			{"ID": "004", "Option_Name": ""},
+            {"ID": "005", "Option_Name": ""},
+            {"ID": "006", "Option_Name": ""}
+        ]},
+		{"question":"?<br/>Description :- ",
+		"options":[
+            {"ID": "001", "Option_Name": ""},
+            {"ID": "002", "Option_Name": ""},
+            {"ID": "003", "Option_Name": ""},
+			{"ID": "004", "Option_Name": ""},
+            {"ID": "005", "Option_Name": ""},
+            {"ID": "006", "Option_Name": ""}
+        ]},
+		{"question":"?<br/>Description :- ",
+		"options":[
+            {"ID": "001", "Option_Name": ""},
+            {"ID": "002", "Option_Name": ""},
+            {"ID": "003", "Option_Name": ""},
+			{"ID": "004", "Option_Name": ""},
+            {"ID": "005", "Option_Name": ""},
+            {"ID": "006", "Option_Name": ""}
+        ]},
+		{"question":"?<br/>Description :- ",
+		"options":[
+            {"ID": "001", "Option_Name": ""},
+            {"ID": "002", "Option_Name": ""},
+            {"ID": "003", "Option_Name": ""},
+			{"ID": "004", "Option_Name": ""},
+            {"ID": "005", "Option_Name": ""},
+            {"ID": "006", "Option_Name": ""}
+        ]},
+		{"question":"?<br/>Description :- ",
+		"options":[
+            {"ID": "001", "Option_Name": ""},
+            {"ID": "002", "Option_Name": ""},
+            {"ID": "003", "Option_Name": ""},
+			{"ID": "004", "Option_Name": ""},
+            {"ID": "005", "Option_Name": ""},
+            {"ID": "006", "Option_Name": ""}
+        ]},
+		{"question":"?<br/>Description :- ",
+		"options":[
+            {"ID": "001", "Option_Name": ""},
+            {"ID": "002", "Option_Name": ""},
+            {"ID": "003", "Option_Name": ""},
+			{"ID": "004", "Option_Name": ""},
+            {"ID": "005", "Option_Name": ""},
+            {"ID": "006", "Option_Name": ""}
+        ]},
+		{"question":"?<br/>Description :- ",
+		"options":[
+            {"ID": "001", "Option_Name": ""},
+            {"ID": "002", "Option_Name": ""},
+            {"ID": "003", "Option_Name": ""},
+			{"ID": "004", "Option_Name": ""},
+            {"ID": "005", "Option_Name": ""},
+            {"ID": "006", "Option_Name": ""}
+        ]},
+		{"question":"?<br/>Description :- ",
+		"options":[
+            {"ID": "001", "Option_Name": ""},
+            {"ID": "002", "Option_Name": ""},
+            {"ID": "003", "Option_Name": ""},
+			{"ID": "004", "Option_Name": ""},
+            {"ID": "005", "Option_Name": ""},
+            {"ID": "006", "Option_Name": ""}
+        ]},
+		{"question":"?<br/>Description :- ",
+		"options":[
+            {"ID": "001", "Option_Name": ""},
+            {"ID": "002", "Option_Name": ""},
+            {"ID": "003", "Option_Name": ""},
+			{"ID": "004", "Option_Name": ""},
+            {"ID": "005", "Option_Name": ""},
+            {"ID": "006", "Option_Name": ""}
+        ]},
+		{"question":"?<br/>Description :- ",
+		"options":[
+            {"ID": "001", "Option_Name": ""},
+            {"ID": "002", "Option_Name": ""},
+            {"ID": "003", "Option_Name": ""},
+			{"ID": "004", "Option_Name": ""},
+            {"ID": "005", "Option_Name": ""},
+            {"ID": "006", "Option_Name": ""}
+        ]},
+		{"question":"?<br/>Description :- ",
+		"options":[
+            {"ID": "001", "Option_Name": ""},
+            {"ID": "002", "Option_Name": ""},
+            {"ID": "003", "Option_Name": ""},
+			{"ID": "004", "Option_Name": ""},
+            {"ID": "005", "Option_Name": ""},
+            {"ID": "006", "Option_Name": ""}
+        ]},
+		{"question":"?<br/>Description :- ",
+		"options":[
+            {"ID": "001", "Option_Name": ""},
+            {"ID": "002", "Option_Name": ""},
+            {"ID": "003", "Option_Name": ""},
+			{"ID": "004", "Option_Name": ""},
+            {"ID": "005", "Option_Name": ""},
+            {"ID": "006", "Option_Name": ""}
+        ]},
+		{"question":"?<br/>Description :- ",
+		"options":[
+            {"ID": "001", "Option_Name": ""},
+            {"ID": "002", "Option_Name": ""},
+            {"ID": "003", "Option_Name": ""},
+			{"ID": "004", "Option_Name": ""},
+            {"ID": "005", "Option_Name": ""},
+            {"ID": "006", "Option_Name": ""}
+        ]},
+		{"question":"?<br/>Description :- ",
+		"options":[
+            {"ID": "001", "Option_Name": ""},
+            {"ID": "002", "Option_Name": ""},
+            {"ID": "003", "Option_Name": ""},
+			{"ID": "004", "Option_Name": ""},
+            {"ID": "005", "Option_Name": ""},
+            {"ID": "006", "Option_Name": ""}
+        ]},
+		{"question":"?<br/>Description :- ",
+		"options":[
+            {"ID": "001", "Option_Name": ""},
+            {"ID": "002", "Option_Name": ""},
+            {"ID": "003", "Option_Name": ""},
+			{"ID": "004", "Option_Name": ""},
+            {"ID": "005", "Option_Name": ""},
+            {"ID": "006", "Option_Name": ""}
+        ]},
+		{"question":"?<br/>Description :- ",
+		"options":[
+            {"ID": "001", "Option_Name": ""},
+            {"ID": "002", "Option_Name": ""},
+            {"ID": "003", "Option_Name": ""},
+			{"ID": "004", "Option_Name": ""},
+            {"ID": "005", "Option_Name": ""},
+            {"ID": "006", "Option_Name": ""}
+        ]},
+		{"question":"?<br/>Description :- ",
+		"options":[
+            {"ID": "001", "Option_Name": ""},
+            {"ID": "002", "Option_Name": ""},
+            {"ID": "003", "Option_Name": ""},
+			{"ID": "004", "Option_Name": ""},
+            {"ID": "005", "Option_Name": ""},
+            {"ID": "006", "Option_Name": ""}
+        ]},
+		{"question":"?<br/>Description :- ",
+		"options":[
+            {"ID": "001", "Option_Name": ""},
+            {"ID": "002", "Option_Name": ""},
+            {"ID": "003", "Option_Name": ""},
+			{"ID": "004", "Option_Name": ""},
+            {"ID": "005", "Option_Name": ""},
+            {"ID": "006", "Option_Name": ""}
+        ]},
+		{"question":"?<br/>Description :- ",
+		"options":[
+            {"ID": "001", "Option_Name": ""},
+            {"ID": "002", "Option_Name": ""},
+            {"ID": "003", "Option_Name": ""},
+			{"ID": "004", "Option_Name": ""},
+            {"ID": "005", "Option_Name": ""},
+            {"ID": "006", "Option_Name": ""}
+        ]},
+		{"question":"?<br/>Description :- ",
+		"options":[
+            {"ID": "001", "Option_Name": ""},
+            {"ID": "002", "Option_Name": ""},
+            {"ID": "003", "Option_Name": ""},
+			{"ID": "004", "Option_Name": ""},
+            {"ID": "005", "Option_Name": ""},
+            {"ID": "006", "Option_Name": ""}
+        ]},
+		{"question":"?<br/>Description :- ",
+		"options":[
+            {"ID": "001", "Option_Name": ""},
+            {"ID": "002", "Option_Name": ""},
+            {"ID": "003", "Option_Name": ""},
+			{"ID": "004", "Option_Name": ""},
+            {"ID": "005", "Option_Name": ""},
+            {"ID": "006", "Option_Name": ""}
+        ]},
+		{"question":"?<br/>Description :- ",
+		"options":[
+            {"ID": "001", "Option_Name": ""},
+            {"ID": "002", "Option_Name": ""},
+            {"ID": "003", "Option_Name": ""},
+			{"ID": "004", "Option_Name": ""},
+            {"ID": "005", "Option_Name": ""},
+            {"ID": "006", "Option_Name": ""}
+        ]},
+		{"question":"?<br/>Description :- ",
+		"options":[
+            {"ID": "001", "Option_Name": ""},
+            {"ID": "002", "Option_Name": ""},
+            {"ID": "003", "Option_Name": ""},
+			{"ID": "004", "Option_Name": ""},
+            {"ID": "005", "Option_Name": ""},
+            {"ID": "006", "Option_Name": ""}
+        ]},
+		{"question":"?<br/>Description :- ",
+		"options":[
+            {"ID": "001", "Option_Name": ""},
+            {"ID": "002", "Option_Name": ""},
+            {"ID": "003", "Option_Name": ""},
+			{"ID": "004", "Option_Name": ""},
+            {"ID": "005", "Option_Name": ""},
+            {"ID": "006", "Option_Name": ""}
+        ]},
+		{"question":"?<br/>Description :- ",
+		"options":[
+            {"ID": "001", "Option_Name": ""},
+            {"ID": "002", "Option_Name": ""},
+            {"ID": "003", "Option_Name": ""},
+			{"ID": "004", "Option_Name": ""},
+            {"ID": "005", "Option_Name": ""},
+            {"ID": "006", "Option_Name": ""}
+        ]},
+		{"question":"?<br/>Description :- ",
+		"options":[
+            {"ID": "001", "Option_Name": ""},
+            {"ID": "002", "Option_Name": ""},
+            {"ID": "003", "Option_Name": ""},
+			{"ID": "004", "Option_Name": ""},
+            {"ID": "005", "Option_Name": ""},
+            {"ID": "006", "Option_Name": ""}
+        ]},
+		{"question":"?<br/>Description :- ",
+		"options":[
+            {"ID": "001", "Option_Name": ""},
+            {"ID": "002", "Option_Name": ""},
+            {"ID": "003", "Option_Name": ""},
+			{"ID": "004", "Option_Name": ""},
+            {"ID": "005", "Option_Name": ""},
+            {"ID": "006", "Option_Name": ""}
+        ]},
+		{"question":"?<br/>Description :- ",
+		"options":[
+            {"ID": "001", "Option_Name": ""},
+            {"ID": "002", "Option_Name": ""},
+            {"ID": "003", "Option_Name": ""},
+			{"ID": "004", "Option_Name": ""},
+            {"ID": "005", "Option_Name": ""},
+            {"ID": "006", "Option_Name": ""}
         ]}
 		];
 
         var ele = document.getElementById('questionsDiv');
 		var temp;
-		for (var j = 0; j < bird.length; j++) {
+		for (var j = 0; j < questions.length; j++) {
 		ele.innerHTML = ele.innerHTML +
-		'<br/>'+bird[j]['sampleText']+
-					'<br/><select id="sel'+j+'" onclick="show(this)" multiple/><br/>';
+		'<font face = "Verdana" size = "2" class="ex1"><br/><br/><br/>'+(j+1)+') '+questions[j]['question']+
+					'<br/></font><select id="sel'+j+'" onclick="show(this)" multiple/><br/>';
 		}
-		for (var j = 0; j < bird.length; j++) {
-		temp = bird[j]['birds'];
+		for (var j = 0; j < questions.length; j++) {
+		temp = questions[j]['options'];
 		
 		ele = document.getElementById("sel"+j+"");
 			for (var i = 0; i < temp.length; i++) {
 				// POPULATE SELECT ELEMENT WITH JSON.
 				ele.innerHTML = ele.innerHTML +
-					'<option value="' + temp[i]['ID'] + '">' + temp[i]['Bird_Name'] + '</option>';
-					console.log('**********'+i);
-					/*if(i = temp.length){
-					console.log('Close select');
-					ele.innerHTML = ele.innerHTML +'</select>';
-					}*/
+					'<option value="' + temp[i]['ID'] + '"><font face = "Verdana" size = "2">' + temp[i]['Option_Name'] + '</font></option>';
 			}
-			/*console.log('Close select');
-			ele.innerHTML = ele.innerHTML +'</select>';*/
 		}
     }
 
     function show(ele) {
         // GET THE SELECTED VALUE FROM <select> ELEMENT AND SHOW IT.
         var msg = document.getElementById('msg');
-        msg.innerHTML = 'Selected Bird: <b>' + ele.options[ele.selectedIndex].text + '</b> </br>' +
+        msg.innerHTML = 'Selected Option: <b>' + ele.options[ele.selectedIndex].text + '</b> </br>' +
             'ID: <b>' + ele.value + '</b>';
     }
 </script>
