@@ -1,0 +1,956 @@
+[
+  {
+    "question": "How are you encrypting and protecting your data in transit?<br/>Description :- A best practice is to protect data in transit by using encryption. AWS uses encrypted end-points for the service APIs. Additionally customer can use various techniques within their Amazon EC2 instances.",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "Not protected"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "SSL for APIs"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "Encrypted communications"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "VPN"
+      },
+      {
+        "ID": "005",
+        "Option_Name": "Private connectivity"
+      },
+      {
+        "ID": "006",
+        "Option_Name": "AWS marketplace or partner solution"
+      }
+    ]
+  },
+  {
+    "question": "How are you protecting access and use of the AWS root account??<br/>Description :- The AWS root account credentials are similar to root or local admin in other operating systems and should be used very sparingly. The current best practice is to create AWS Identity and Access management (IAM) users, associate them to an administrator group, and use the IAM user to manage the account. The AWS root account should not have API keys, should have a strong password and should be associated with a hardware multi-factor authentication(MFA) device; this forces the only use of the root identity to be via the AWS management console and does not allow it to be used for application programming interface(API) calls. Note that some resellers or regions do not distribute or support the AWS root account credentials",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "Actively using"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "Minimal Use"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "AWS Marketplace or Partner"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "MFA"
+      }
+    ]
+  },
+  {
+    "question": "How are your defining roles and responsibilities of system users to control human access to the AWS management console and API??<br/>Description :- The current best practice is for customers to segregate defined roles and responsibilities of system users by creating user groups. User groups can be defined using several different technologies, Identity and Access Management (IAM) groups, IAM roles for cross-account access, web identities, via Security Assertion Markup Language (SAML) integration (For example: defining roles in Active Directory), or by using a third party solution (For example: Okta, Ping identity, or another custom technique) which usually integrates via either SAML or AWS Security Token service. Using shared account is strongly discouraged.",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "Shared credentials"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "IAM Users and Groups"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "SAML integration"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "Web Identity Federation"
+      },
+      {
+        "ID": "005",
+        "Option_Name": "AWS security Token Service"
+      },
+      {
+        "ID": "006",
+        "Option_Name": "IAM Cross-Account"
+      },
+      {
+        "ID": "007",
+        "Option_Name": "AWS Marketplace or Partner Solution"
+      },
+      {
+        "ID": "008",
+        "Option_Name": "Employee Life-Cycle"
+      },
+      {
+        "ID": "009",
+        "Option_Name": "Minimum privileges"
+      }
+    ]
+  },
+  {
+    "question": "How are you limiting automated access to AWS resources?  (For example: applications, scripts, and/or third party tool or service)<br/>Description :- Systematic access should be accessible in similar ways as users groups are created for people. For Amazon EC2 instances, these groups are called IAM roles for EC2. The current best practice is to use IAM roles for EC2 and AWS SDK or CLI, which has built-in support for retrieving the IAM roles for EC2 credentials. Traditionally, user credentials are injected into EC2 instances, but hard-coding the credentials into scripts and source code are discouraged.",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "Root identity used"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "Hardcoded IAM credentials"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "IAM Roles"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "IAM User Credentials"
+      },
+      {
+        "ID": "005",
+        "Option_Name": "AML integration"
+      },
+      {
+        "ID": "006",
+        "Option_Name": "AWS Security Token Service"
+      },
+      {
+        "ID": "007",
+        "Option_Name": "OS-specific"
+      },
+      {
+        "ID": "008",
+        "Option_Name": "AWS MarketPlace or Partner Solution"
+      }
+    ]
+  },
+  {
+    "question": "How are you managing keys and credentials?<br/>Description :- Keys and credentials are secrets that should be protected, and an appropriate rotation policy should be defined and used. The best practice is to not hard code these secrets into management scripts and applications but is does not occur.",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "Embedded in Code"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "No Rotation Policy"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "AWS CloudHRM"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "AWS Server-side"
+      },
+      {
+        "ID": "005",
+        "Option_Name": "AWS Marketplace or Partner solution"
+      },
+      {
+        "ID": "006",
+        "Option_Name": "Rotation Policy"
+      }
+    ]
+  },
+  {
+    "question": "How are you enforcing network and host-level boundary protection?<br/>Description :- In on-premises datacenters a DMZ approach separates systems into trusted and untrusted zones using firewalls. On AWS, both stateful and stateless firewalls are used. Stateful firewalls are called Security Groups and stateless firewalls are called network Access Control Lists(ACLs) that protect the subnets in an Amazon Virtual Private Network(VPC). The current best practice is to run a system in a VPC, and define the role based security in Security Groups(For example : web tier, app tier, etc )  and the location based security in network ACLs (For example : Elastic Load Balancing for in one subnet per Availability zone, web tier in another subnet per Availability Zone etc.)",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "Permissive Security Groups"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "Service-Specific Access Controls"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "Private Mechanisms"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "Subnets and ACLs"
+      },
+      {
+        "ID": "005",
+        "Option_Name": "Strict Firewalls"
+      },
+      {
+        "ID": "006",
+        "Option_Name": "VPC"
+      },
+      {
+        "ID": "007",
+        "Option_Name": "Private Connectivity"
+      },
+      {
+        "ID": "008",
+        "Option_Name": "Bastion Host"
+      },
+      {
+        "ID": "009",
+        "Option_Name": "Security Testing Performed"
+      },
+      {
+        "ID": "010",
+        "Option_Name": "AWS Trusted Advisor"
+      },
+      {
+        "ID": "011",
+        "Option_Name": "Tightly Defined Security Groups"
+      },
+      {
+        "ID": "012",
+        "Option_Name": "AWS SSM"
+      }
+    ]
+  },
+  {
+    "question": "How are you enforcing AWS service level protection?<br/>Description :- Another best practice is to control access to resources, AWS Identity and Access Management(IAM) allows various resource level controls to be defined (For example use of encryption, time of day, source, IP, etc) and various services allow additional techniques to be used (For example: Amazon S3 bucket policies etc). Additionally, customers can use various techniques within the Amazon EC2 instances.",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "Not Enforcing"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "Least privilege"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "Separation of duties"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "Secondary protection"
+      },
+      {
+        "ID": "005",
+        "Option_Name": "Service-specific requirements"
+      },
+      {
+        "ID": "006",
+        "Option_Name": "AWS MarketPlace or Partner Solution"
+      },
+      {
+        "ID": "007",
+        "Option_Name": "Periodic Audit"
+      }
+    ]
+  },
+  {
+    "question": "How are you protecting the integrity of the operating system on your Amazon EC2 instances?<br/>Description :- Another traditional control is to protect the integrity of the operating system. This is easily done in EC2 using traditional host based techniques (For example OSSEC, Tripwire, TrendMicro, Deep Security etc.)",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "Default configuration"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "File Integrity"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "EC2 Intrusion Detection"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "AWS MarketPlace or Partner Solution"
+      },
+      {
+        "ID": "005",
+        "Option_Name": "Configuration Management Tool"
+      }
+    ]
+  },
+  {
+    "question": "How are you capturing and analyzing logs?<br/>Description :- Capturing logs is critical for investigating everything from performance to security incidents. The current best practice is for the logs to be periodically moved from the source either directly into a log processing system (For example : CloudWatch logs, Splunk, Papertrail etc) or stored in an Amazon S3 bucket for later processing based on business needs. Common source of logs are AWS API and user related logs (For example : CloudTrail), AWS service-specific logs (For example : Amazon S3, Amazon CloudFront etc), operating system generated logs and third party application specific logs. You can use Amazon CloudWatch Logs to monitor, store and access your log files from Amazon EC2 instances, AWS CloudTrail or other sources.",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "No Logs"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "AWS CloudTrail"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "AWS CloudWatch logs"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "Elastic Load Balancer(ELB) logs"
+      },
+      {
+        "ID": "005",
+        "Option_Name": "Amazon Virtual Private Cloud(VPC) logs"
+      },
+      {
+        "ID": "006",
+        "Option_Name": "Amazon S3 Bucket logs"
+      },
+      {
+        "ID": "007",
+        "Option_Name": "Service specific"
+      },
+      {
+        "ID": "008",
+        "Option_Name": "OS or 3rd Party"
+      },
+      {
+        "ID": "009",
+        "Option_Name": "AWS MarketPlace or Partner Solution"
+      }
+    ]
+  },
+  {
+    "question": "How are you managing AWS service limits for your account?<br/>Description :- AWS accounts are provisioned with default service limits to prevent new users from accidentally provisioning more resources than they need. AWS customers should evaluate their AWS service needs and request appropriate changes to their limits for each region used.",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "Unaware"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "Monitor and manage limits"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "Setup automated monitoring"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "Be aware of service limits"
+      }
+    ]
+  },
+  {
+    "question": "Do you have an escalation path to deal with technical issues?<br/>Description :- Customers should leverage AWS support or an AWS partner. Regular interaction will help address and prevent known issues, knowledge gaps and design concerns. This will reduce the risk of implementation failures and also large scale outages.",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "Unplanned"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "Ad-Hoc"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "Planned"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "Leverage AWS Support APIs"
+      }
+    ]
+  },
+  {
+    "question": "How does your system adapt to changes in demand?<br/>Description :- A scalable system can provide elasticity to add and remove resources automatically so that they closely match the current demand at any given point of time.",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "Unplanned"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "Ad-Hoc"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "Automated scaling"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "Load Test"
+      }
+    ]
+  },
+  {
+    "question": "How are you monitoring your AWS resources?<br/>Description :- Logs and metrics are a powerful tool for gaining insight into the health of your applications. You can configure your system to monitor logs and metrics and send notifications when thresholds are crossed or significant events occur. Ideally, when low performance thresholds are crossed or failures occur, the system will have been architected to automatically self-heal or scale in response",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "No monitoring"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "Notification"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "Review"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "Monitoring"
+      },
+      {
+        "ID": "005",
+        "Option_Name": "Automated Response"
+      }
+    ]
+  },
+  {
+    "question": "How are you executing change management?<br/>Description :- Change management of provisioned AWS resources and applications is necessary to ensure that the applications and operating environment are running known software and can be patched or replaced in a controlled manner.",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "No CM Process"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "CM Manual"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "CM Automated"
+      }
+    ]
+  },
+  {
+    "question": "How are you backing up your data?<br/>Description :- Back up data, applications and operating environments (defined as operating systems configured with applications) to meet requirements for mean time to recovery (MTTR) and recovery point objectives (RPO).",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "No Backups"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "Data is Backed-up"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "Backups are secured and/ or Encrypted"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "Automated Backups"
+      },
+      {
+        "ID": "005",
+        "Option_Name": "Periodic Recovery Testing"
+      }
+    ]
+  },
+  {
+    "question": "How does your system withstand component failures?<br/>Description :- Do your applications have a requirement, implicit or explicit, for high availability and low mean time to recovery(MTTR)? If so, architect your applications for resiliency and distribute them to withstand outages. To achieve higher levels of availability, this distribution should span different physical locations. Architect individual layers (For example : web server, database) for resiliency, which includes monitoring, self-healing and notification of significant event disruption and failure.",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "No High-availability"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "Monitoring"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "Notifications"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "Load Balancing"
+      },
+      {
+        "ID": "005",
+        "Option_Name": "Multi-AZ, Region"
+      },
+      {
+        "ID": "006",
+        "Option_Name": "Auto Healing"
+      }
+    ]
+  },
+  {
+    "question": "How are you planning for recovery?<br/>Description :- Data recovery is a critical should restoration of data be required from the backup methods. Your definition of and execution on the objectives, resources, locations and functions of this data must align with RTO and RPO objectives.",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "Unplanned"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "Objectives Defined"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "Disaster Recovery"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "Configuration Unit"
+      },
+      {
+        "ID": "005",
+        "Option_Name": "Service Limits"
+      },
+      {
+        "ID": "006",
+        "Option_Name": "DR Tested and Validated"
+      },
+      {
+        "ID": "007",
+        "Option_Name": "Automated Recovery implemented"
+      }
+    ]
+  },
+  {
+    "question": "How do you select the appropriate instance type for your system?<br/>Description :- Amazon EC2 offers a wide selection of instance types optimized to fit different use cases. Instance types are composed of varying combinations of CPU, memory, storage and networking capacity and give you the flexibility to choose the appropriate mix of resources for your applications. Each instance type includes one or more instance sizes, allowing you to scale your resources to the requirements of your target workload. AWS supports server-less architectures, such as AWS lambda that can radically change the performance efficiency of a workload.",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "Unplanned/ Defaults"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "Previous On-premise experience"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "Previous AWS experience"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "Policy/ Reference architecture"
+      },
+      {
+        "ID": "005",
+        "Option_Name": "Cost/ Budget"
+      },
+      {
+        "ID": "006",
+        "Option_Name": "Benchmarking"
+      },
+      {
+        "ID": "007",
+        "Option_Name": "Guidance from AWS or from a member of the AWS Partner Network(APN)"
+      },
+      {
+        "ID": "008",
+        "Option_Name": "Load test"
+      }
+    ]
+  },
+  {
+    "question": "How do you ensure that you continue to have the most appropriate instance type as new instance types and features are introduced?<br/>Description :- AWS listens to customer feedback and continues to innovate the new instance types and sizes, providing new combinations of CPU, memory, storage and networking capacity. This means that a new instance type might be released that offers better performance efficiency than the one you originally selected.",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "Unplanned"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "Ad-Hoc"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "Review"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "Benchmarking"
+      },
+      {
+        "ID": "005",
+        "Option_Name": "Load Test"
+      }
+    ]
+  },
+  {
+    "question": "How do you monitor your instances post launch to ensure they are performing as expected?<br/>Description :- System performance can degrade over time due to internal auditor and external factors. Monitoring the performance of systems allows you to identify this degradation and remediate internal or external factors (such as the OS or application load)",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "Do Not monitor"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "Amazon CloudWatch monitoring"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "Third-party monitoring"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "Periodic Review"
+      },
+      {
+        "ID": "005",
+        "Option_Name": "Alarm based notifications"
+      },
+      {
+        "ID": "006",
+        "Option_Name": "Trigger based actions"
+      }
+    ]
+  },
+  {
+    "question": "How do you select the appropriate storage solution for your system?<br/>Description :- AWS is designed to provide low-cost data storage with high durability and availability. AWS offers storage choices for backup, archiving, and disaster recovery, as well as block, file and object storage.",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "Unplanned/ Defaults"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "Previous On-premise experience"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "Previous AWS experience"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "Policy/ Reference architecture"
+      },
+      {
+        "ID": "005",
+        "Option_Name": "Cost/ Budget"
+      },
+      {
+        "ID": "006",
+        "Option_Name": "Benchmarking"
+      },
+      {
+        "ID": "007",
+        "Option_Name": "Guidance from AWS or APN partner"
+      },
+      {
+        "ID": "008",
+        "Option_Name": "Load Test"
+      }
+    ]
+  },
+  {
+    "question": "How do you ensure that you continue to have the most appropriate storage solution as new storage solutions and features are launched?<br/>Description :- AWS listens to customer feedback and continues to innovate with new storage solution and features, providing new combinations of capacity, throughput and durability. This means that a new storage solution might be released that offers better performance efficiency than the one you originally selected.",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "Unplanned"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "Ad-hoc"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "Review"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "Benchmarking"
+      },
+      {
+        "ID": "005",
+        "Option_Name": "Load Test"
+      }
+    ]
+  },
+  {
+    "question": "How do you monitor your storage solution to ensure it is performing as expected?<br/>Description :- System performance can degrade over time, or for periods of time, due to internal or external factors. Monitoring the performance of systems allows you to identify this degradation and remediate the internal or external factors",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "Unplanned"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "Amazon CloudWatch monitoring"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "Third party monitoring"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "Periodic review"
+      },
+      {
+        "ID": "005",
+        "Option_Name": "Alarm-based review"
+      },
+      {
+        "ID": "006",
+        "Option_Name": "Trigger-based actions"
+      }
+    ]
+  },
+  {
+    "question": "How do you ensure that the capacity and throughput of your solutions matches demand?<br/>Description :- The amount of demand placed on a system often varies over different cycles, product lifecycle such as launch, growth, etc. temporal cycles such as a time of day, weekday or month etc. unpredictable cycles such as seen with social media, and predicable cycles such as television episodes. Having insufficient database capacity and throughput to meet workload can degrade user experience and at its worst, lead to system failure.",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "Unplanned"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "Reactive"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "Planned"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "Automated"
+      }
+    ]
+  },
+  {
+    "question": "How do you select the appropriate proximity and caching solutions for your system?<br/>Description :- Physical distance, network distance, or long running requests can introduce system delays. Unaddressed latency can tie up system resources for longer than required, and introduce both internal and external performance degradation. To reduce latency, consider the end-to-end performance of your entire system from the end-user’s perspective, and look for opportunities to adjust the physical proximity of your resources or cache solutions.",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "Unplanned/ Defaults"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "On-premises experience"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "AWS experience"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "Policy/ Reference architecture"
+      },
+      {
+        "ID": "005",
+        "Option_Name": "Cost/ Budget"
+      },
+      {
+        "ID": "006",
+        "Option_Name": "Benchmarking"
+      },
+      {
+        "ID": "007",
+        "Option_Name": "Guidance from AWS or from an APN partner"
+      },
+      {
+        "ID": "008",
+        "Option_Name": "Load test"
+      }
+    ]
+  },
+  {
+    "question": "How do you make sure your capacity matches but does not substantially exceed what you need?<br/>Description :- For an architecture that is balanced in terms of spend and performance, ensure that everything you pay for is used and avoid significantly underutilized instances. A skewed utilization metric in either direction will have an adverse impact on your business in either operational costs( degraded performance due to over utilization) or wasted AWS expenditures( due to over provisioning).",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "Provision for peak"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "Demand-based approach"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "Queue-based approach"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "Time-based approach"
+      },
+      {
+        "ID": "005",
+        "Option_Name": "Appropriately provisioned"
+      }
+    ]
+  },
+  {
+    "question": "How are you optimizing the usage of AWS services?<br/>Description :- If you use application-level service names, make sure that you use them well. For example, introduce life cycle policies to control Amazon s3 usage or leverage services such as Amazon RDS and Amazon DynamoDB enable tremendous flexibility. Checks for appropriate usage include verifying multi-AZ deployments for Amazon RDS or verifying that provisioned IOPS are applicable in your Amazon DynmoDB tables.",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "Un-optimized"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "Service-specific optimizations"
+      }
+    ]
+  },
+  {
+    "question": "Have you selected the appropriate pricing model to meet your cost targets?<br/>Description :- Use the pricing model most appropriate for workload to minimize expense. The optimal deployment could be fully On-Demand instances, a mix of On-Demand and Reserved instances, or you might include Spot instances, where applicable.",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "On Demand"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "Consider Cost"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "Spot"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "Sell Reserved Instances"
+      },
+      {
+        "ID": "005",
+        "Option_Name": "Analyze Usage"
+      },
+      {
+        "ID": "006",
+        "Option_Name": "Automated Action"
+      }
+    ]
+  },
+  {
+    "question": "Are there managed services (higher-level services that Amazon EC2, Amazon EBS, Amazon S3) you can use to improve your ROI?<br/>Description :- Amazon EC2, Amazon EBS, Amazon S3 are ‘building-block’ AWS services, Managed services such as Amazon RDS and Amazon DynamoDB are ‘higher level’ AWS services. By using these managed services. You can reduce or remove much of your administrative and operational overhead, freeing you to work on applications and business-related activities.",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "Not considered"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "Analyze services"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "Consider appropriate databases"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "Consider other application level services"
+      },
+      {
+        "ID": "005",
+        "Option_Name": "Consider AWS CloudFormation, AWS Elastic Beanstalk or AWS Opsworks"
+      }
+    ]
+  },
+  {
+    "question": "What access controls and procedures do you have in place to govern AWS Usage?<br/>Description :- Establish policies and mechanisms to make sure that appropriate costs are incurred while objectives are achieved. By employing a checks-and-balances approach through tagging and IAM controls, you can innovate without overspending.",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "No Controls"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "Establish groups and roles"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "Track project life-cycle"
+      }
+    ]
+  },
+  {
+    "question": "How are you monitoring your spending?<br/>Description :- Establish policies and procedures to monitor, control and appropriately assign you costs. Leverage AWS-provided tools for visibility into who is using what – and at what cost. This will provide you with a deeper understanding of your business needs and your teams operations.",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "Unmonitored spend"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "Tag all resources"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "Review detailed Billing reports"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "Cost-efficient architecture"
+      },
+      {
+        "ID": "005",
+        "Option_Name": "Monitoring"
+      },
+      {
+        "ID": "006",
+        "Option_Name": "Notifications"
+      },
+      {
+        "ID": "007",
+        "Option_Name": "Use AWS Cost explorer"
+      },
+      {
+        "ID": "008",
+        "Option_Name": "Finance driven charge back method"
+      }
+    ]
+  },
+  {
+    "question": "Do you decommission resources that you no longer need or step resources that are temporarily not needed?<br/>Description :- Ensure that you only pay for services that are being used. Implement change control and resource management from project inception to end-of-life so that you can identify necessary process changes or enhancements where appropriate. Work with AWS support for recommendations on how to optimize your project for your workload: for example, when to use Auto scaling, AWS Opsworks, AWS Data pipeline, or the different Amazon EC2 provisioning approaches.",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "Not planned"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "Defined process"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "Automated"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "Post-process"
+      }
+    ]
+  },
+  {
+    "question": "Did you consider data-transfer charges when designing your architecture?<br/>Description :- Ensure that you monitor data-transfer charges so that you can make architecture decisions that might alleviate some of these costs. For example, if you are a content provider and have been serving content directly from an Amazon s3 bucket to your end users, you might be able significantly reduce your costs if you push your content to the Amazon CloudFront CDN. Remember that a small yet effective architectural change can drastically reduce your operational costs.",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "Unplanned"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "CDN"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "Direct Connect"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "Balanced"
+      },
+      {
+        "ID": "005",
+        "Option_Name": "Optimized"
+      }
+    ]
+  },
+  {
+    "question": "How do you manage and/or consider the adoption of new services?<br/>Description :- At AWS, our goals is to help you architect as optimally and cost effectively as possible. New services and features might directly reduce costs as possible. New services and features might directly reduce your costs. A good example of this is Amazon Glacier, which offers a low-cost, “cold” storage solution for data that is infrequently accessed, yet must be retained for business business legal reasons. Another example is Reduced Redundancy storage for Amazon S3, which allows you to elect to have fewer copies of your Amazon s3 objects (lower levels of redundancy) for a reduced price. There are implications to consider when making these decisions. For example, “What does it mean to have fewer copies of my data” or “Will I need to access this data more than I realize?",
+    "options": [
+      {
+        "ID": "001",
+        "Option_Name": "Unmonitored"
+      },
+      {
+        "ID": "002",
+        "Option_Name": "Monitored"
+      },
+      {
+        "ID": "003",
+        "Option_Name": "Ad-hoc"
+      },
+      {
+        "ID": "004",
+        "Option_Name": "Scheduled"
+      }
+    ]
+  }
+]
