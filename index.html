@@ -20,26 +20,25 @@ p.ex1 {
 			var questions = [];
 $.getJSON( "questions.json", function( data){
   questions = data;
-  console.log(questions);
 });
     function populateSelect() {
         // THE JSON ARRAY.		
 		
         var ele = document.getElementById('questionsDiv');
-		var temp;
+		var selectOption;
 		for (var j = 0; j < questions.length; j++) {
 		ele.innerHTML = ele.innerHTML +
 		'<font face = "Verdana" size = "2" class="ex1"><br/><br/><br/>'+(j+1)+') '+questions[j]['question']+
 					'<br/></font><select id="sel'+j+'" onclick="show(this)" multiple/><br/>';
 		}
 		for (var j = 0; j < questions.length; j++) {
-		temp = questions[j]['options'];
+		selectOption = questions[j]['options'];
 		
 		ele = document.getElementById("sel"+j+"");
-			for (var i = 0; i < temp.length; i++) {
+			for (var i = 0; i < selectOption.length; i++) {
 				// POPULATE SELECT ELEMENT WITH JSON.
 				ele.innerHTML = ele.innerHTML +
-					'<option value="' + temp[i]['ID'] + '"><font face = "Verdana" size = "2">' + temp[i]['Option_Name'] + '</font></option>';
+					'<option value="' + selectOption[i]['ID'] + '"><font face = "Verdana" size = "2">' + selectOption[i]['Option_Name'] + '</font></option>';
 			}
 		}
     }
