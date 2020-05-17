@@ -5,45 +5,113 @@
 <style>
 p.ex1 {
   border: 1px solid red; 
-  padding: 35px;
+  padding: 35px;}
 
+button {
+   background: #3351FF;
+   color: #fff;
+   text-align: center;
+   font-weight: bold;
+   padding: 10px 30px;
+   border-radius: 3px;
+}
 
+#overlay {
+   position: fixed;
+   height: 100%; 
+   width: 100%;
+   top: 0;
+   right: 0;  
+   bottom: 0;
+   left: 0;
+   background: rgba(0,0,0,0.8);
+   display: none;
+}
+
+#popup {
+   max-width: 600px;
+   width: 80%;
+   max-height: 300px;
+   height: 80%; 
+   padding: 20px;
+   position: relative;
+   background: #fff;
+   margin: 20px auto;
+}
+
+#close {
+   position: absolute;
+   top: 10px;
+   right: 10px;
+   cursor: pointer;
+   color: #000;
+}
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <body onload="populateSelect()">
 	<h1 align="center">AWS Questionare</h1>
+	
+      <div id="overlay">
+         <div id="popup">
+            <div id="close">X</div>
+            <h2>This is a popup</h2>
+            <p>You just triggered a popup</p>
+         </div>
+      </div>
     <!--The SELECT element.-->
 	<div id="questionsDiv">
     <p id="msg"></p>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
 <script>
-			var questions = [];
+//$('#popup1').popup();
+	var questions = [];
 $.getJSON( "questions.json", function( data){
   questions = data;
 });
     function populateSelect() {
+	
+		$('#trigger').click(function() {
+      $('#overlay').fadeIn(1000);
+   });
+
+   $('#close').click(function() {
+      $('#overlay').fadeOut(300);
+   });
+	
         // THE JSON ARRAY.		
 		
         var ele = document.getElementById('questionsDiv');
-		var selectOption;
+		var temp;
 		for (var j = 0; j < questions.length; j++) {
 		ele.innerHTML = ele.innerHTML +
+		'<input type="hidden" id="correctAns'+j+'" name="correctAns'+j+'" value="'+questions[j]["Correct_Answers"]+'">'+
+		'<input type="hidden" id="needsImprvmntAns'+j+'" name="needsImprvmntAns'+j+'" value="'+questions[j]["Needs_Improvement_Answers"]+'">'+
+		'<input type="hidden" id="criticalImprvmntAns'+j+'" name="criticalImprvmntAns'+j+'" value="'+questions[j]["Critical_Improvement_Answers"]+'">'+
 		'<font face = "Verdana" size = "2" class="ex1"><br/><br/><br/>'+(j+1)+') '+questions[j]['question']+
-					'<br/></font><select id="sel'+j+'" onclick="show(this)" multiple/><br/>';
+					'<br/></font><select id="sel'+j+'" onclick="show(this,'+j+')" multiple/><button id="trigger">Validate</button><br/>';
+					
 		}
 		for (var j = 0; j < questions.length; j++) {
-		selectOption = questions[j]['options'];
+		temp = questions[j]['options'];
 		
 		ele = document.getElementById("sel"+j+"");
-			for (var i = 0; i < selectOption.length; i++) {
+			for (var i = 0; i < temp.length; i++) {
 				// POPULATE SELECT ELEMENT WITH JSON.
 				ele.innerHTML = ele.innerHTML +
-					'<option value="' + selectOption[i]['ID'] + '"><font face = "Verdana" size = "2">' + selectOption[i]['Option_Name'] + '</font></option>';
+					'<option value="' + temp[i]['ID'] + '"><font face = "Verdana" size = "2">' + temp[i]['Option_Name'] + '</font></option>';
 			}
 		}
     }
 
-    function show(ele) {
+    function show(ele,selIndex) {
+	
+	const arr = Array.from(ele.selectedOptions) //get array from selectedOptions property
+	const list = [] 
+	arr.forEach(item => list.push(item.value)) //push each item to empty array
+	console.log('Selected Index: '+list);
+	console.log('Correct Answer: '+document.getElementById("correctAns"+selIndex).value);
+	
         // GET THE SELECTED VALUE FROM <select> ELEMENT AND SHOW IT.
         var msg = document.getElementById('msg');
         msg.innerHTML = 'Selected Option: <b>' + ele.options[ele.selectedIndex].text + '</b> </br>' +
