@@ -54,8 +54,10 @@ button {
       <div id="overlay">
          <div id="popup">
             <div id="close">X</div>
-            <h2>This is a popup</h2>
-            <p>You just triggered a popup</p>
+				<div id="popuptext">
+					<h2>This is a popup</h2>
+					<p>You just triggered a popup</p>
+				</div>
          </div>
       </div>
     <!--The SELECT element.-->
@@ -104,19 +106,55 @@ $.getJSON( "questions.json", function( data){
 			}
 		}
     }
+	
+	function ifContains(toCheckArray, checkInArray){
+		for(var k = 0; k < toCheckArray.length; k++){
+			for(var l = 0; l < checkInArray.length; l++){
+				if(toCheckArray[k]==checkInArray[l]){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 
     function show(ele,selIndex) {
-	$('#overlay').fadeIn(1000);
-	const arr = Array.from(ele.selectedOptions) //get array from selectedOptions property
-	const list = [] 
+	var arr = Array.from(ele.selectedOptions) //get array from selectedOptions property
+	var correctAns = document.getElementById("correctAns"+selIndex).value;
+	var needsImprvmntAns = document.getElementById("needsImprvmntAns"+selIndex).value;
+	var criticalImprvmntAns = document.getElementById("criticalImprvmntAns"+selIndex).value;
+	var criticalImprvmntAnsArray = criticalImprvmntAns.split(',');
+	var needsImprvmntAnsArray = needsImprvmntAns.split(',');
+	var list = [] 
 	arr.forEach(item => list.push(item.value)) //push each item to empty array
+	console.log('Selected Index-arr: '+arr);
 	console.log('Selected Index: '+list);
+	console.log('list.length: '+list.length);
 	console.log('Correct Answer: '+document.getElementById("correctAns"+selIndex).value);
+	if(list.length==0){
+		document.getElementById('popuptext').innerHTML = '<h2>No answer selected!</h2><p>Please select your answers.</p>';
+		console.log('Inside if 1');
+	//alert('Correct!!');
+	}else if(list==correctAns){
+		document.getElementById('popuptext').innerHTML = '<h2>Correct!</h2><p>You are following the best practices.</p>';
+		console.log('Inside if 2');
+	//alert('Correct!!');
+	}else if(ifContains(criticalImprvmntAnsArray,list)){
+		document.getElementById('popuptext').innerHTML = '<h2>Incorrect!</h2><p>You need to change your current choices ASAP as they are against the cloud best practices.</p>';
+		console.log('Inside if 3');
+	}else if(ifContains(needsImprvmntAnsArray,list)){
+		document.getElementById('popuptext').innerHTML = '<h2>Needs Improvement!</h2><p>Please revist your cloud practices.</p>';
+		console.log('Inside if 4');
+	}else{
+		document.getElementById('popuptext').innerHTML = '<h2>Partially correct!</h2><p>You are partially correct. Try more answers.</p>';
+		console.log('Inside if 5');
+	}	
 	
+	$('#overlay').fadeIn(1000);
         // GET THE SELECTED VALUE FROM <select> ELEMENT AND SHOW IT.
-        var msg = document.getElementById('msg');
+        /*var msg = document.getElementById('msg');
         msg.innerHTML = 'Selected Option: <b>' + ele.options[ele.selectedIndex].text + '</b> </br>' +
-            'ID: <b>' + ele.value + '</b>';
+            'ID: <b>' + ele.value + '</b>';*/
     }
 </script>
 </html>
