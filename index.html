@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>AWS Questionnaire</title>
+    <title>AWS Questionare</title>
 </head>
 <style>
 p.ex1 {
@@ -47,11 +47,9 @@ button {
    color: #000;
 }
 </style>
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <body onload="populateSelect()">
-	<h1 align="center">AWS Questionnaire</h1>
+	<h1 align="center">AWS Questionare</h1>
 	
       <div id="overlay">
          <div id="popup">
@@ -70,7 +68,7 @@ button {
 <script>
 //$('#popup1').popup();
 	var questions = [];
-$.getJSON( "questions.json", function( data){
+$.getJSON( "data/questions.json", function( data){
   questions = data;
 });
     function populateSelect() {
