@@ -57,7 +57,7 @@ button {
 }
 </style>
 
-<body onload="populateSelect();">
+<body >
 	<h1 align="center">AWS Questionare</h1>
 	
       <div id="overlay">
@@ -76,12 +76,12 @@ button {
 
 <script>
 
-    function populateSelect() {
+   /* function populateSelect() {*/
 	
 		/*$('#trigger').click(function() {
       $('#overlay').fadeIn(1000);
    });*/
-/*$( document ).ready(function() {*/
+$( document ).ready(function() {
    $('#close').click(function() {
       $('#overlay').fadeOut(300);
    });
@@ -110,7 +110,7 @@ button {
 					'<option value="' + temp[i]['ID'] + '"><font face = "Verdana" size = "2">' + temp[i]['Option_Name'] + '</font></option>';
 			}
 		}
-    }//);
+    });
 	
 	function ifContains(toCheckArray, checkInArray){
 		for(var k = 0; k < toCheckArray.length; k++){
