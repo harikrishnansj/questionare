@@ -5,10 +5,10 @@
 	<!--<script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>-->
 	<script type="text/javascript">
 //$('#popup1').popup();
-	var questions = [];
+	/*var questions = [];
 $.getJSON( "data/questions.json", function( data){
   questions = data;
-});
+});*/
 </script>
 </head>
 <style>
@@ -82,6 +82,11 @@ button {
       $('#overlay').fadeIn(1000);
    });*/
 $( document ).ready(function() {
+	alert('Hi*********************');
+	var questions = [];
+$.getJSON( "data/questions.json", function( data){
+  questions = data;
+});
 	alert('Hello');
    $('#close').click(function() {
       $('#overlay').fadeOut(300);
