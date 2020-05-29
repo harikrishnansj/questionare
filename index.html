@@ -73,8 +73,7 @@
         $('#overlay').fadeOut(300);
       });
       
-          var ele = document.getElementById('questionsDiv');
-      alert('alert2: '+questions.length);
+      var ele = document.getElementById('questionsDiv');
       var temp;
       for (var j = 0; j < questions.length; j++) {
       ele.innerHTML = ele.innerHTML + '<input type="hidden" id="correctAns'+j+'" name="correctAns'+j+'" value="'+questions[j]["Correct_Answers"]+'">'+
@@ -118,25 +117,15 @@
       var list = [] 
       arr.forEach(item => list.push(item.value)) //push each item to empty array
       if(list.length==0){
-      document.getElementById('popuptext').innerHTML = '
-      	<h2>No answer selected!</h2>
-      	<p>Please select your answers.</p>';
+      document.getElementById('popuptext').innerHTML = '<h2>No answer selected!</h2><p>Please select your answers.</p>';
       }else if(list==correctAns){
-      document.getElementById('popuptext').innerHTML = '
-      	<h2>Correct!</h2>
-      	<p>You are following the best practices.</p>';
+      document.getElementById('popuptext').innerHTML = '<h2>Correct!</h2><p>You are following the best practices.</p>';
       }else if(ifContains(criticalImprvmntAnsArray,list)){
-      document.getElementById('popuptext').innerHTML = '
-      	<h2>Incorrect!</h2>
-      	<p>You need to change your current choices ASAP as they are against the cloud best practices.</p>';
+      document.getElementById('popuptext').innerHTML = '<h2>Incorrect!</h2><p>You need to change your current choices ASAP as they are against the cloud best practices.</p>';
       }else if(ifContains(needsImprvmntAnsArray,list)){
-      document.getElementById('popuptext').innerHTML = '
-      	<h2>Needs Improvement!</h2>
-      	<p>Please revist your cloud practices.</p>';
+      document.getElementById('popuptext').innerHTML = '<h2>Needs Improvement!</h2><p>Please revist your cloud practices.</p>';
       }else{
-      document.getElementById('popuptext').innerHTML = '
-      	<h2>Partially correct!</h2>
-      	<p>You are partially correct. Try more answers.</p>';
+      document.getElementById('popuptext').innerHTML = '<h2>Partially correct!</h2><p>You are partially correct. Try more answers.</p>';
       }	
       
       $('#overlay').fadeIn(1000);
