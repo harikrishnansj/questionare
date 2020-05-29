@@ -91,6 +91,7 @@ $( document ).ready(function() {
         var ele = document.getElementById('questionsDiv');
 		var temp;
 		for (var j = 0; j < questions.length; j++) {
+			aler('Question: '+questions[j]["question"]);
 		ele.innerHTML = ele.innerHTML +
 		'<input type="hidden" id="correctAns'+j+'" name="correctAns'+j+'" value="'+questions[j]["Correct_Answers"]+'">'+
 		'<input type="hidden" id="needsImprvmntAns'+j+'" name="needsImprvmntAns'+j+'" value="'+questions[j]["Needs_Improvement_Answers"]+'">'+
