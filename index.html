@@ -86,10 +86,11 @@ $( document ).ready(function() {
    $('#close').click(function() {
       $('#overlay').fadeOut(300);
    });
-	
+	alert('alert1');
         // THE JSON ARRAY.		
 		
         var ele = document.getElementById('questionsDiv');
+	alert('alert2');
 		var temp;
 		for (var j = 0; j < questions.length; j++) {
 			aler('Question: '+questions[j]["question"]);
@@ -112,6 +113,7 @@ $( document ).ready(function() {
 					'<option value="' + temp[i]['ID'] + '"><font face = "Verdana" size = "2">' + temp[i]['Option_Name'] + '</font></option>';
 			}
 		}
+	alert('alert3');
     });
 	
 	function ifContains(toCheckArray, checkInArray){
