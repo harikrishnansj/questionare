@@ -57,7 +57,7 @@ button {
 }
 </style>
 
-<body onload="populateSelect()">
+<body>
 	<h1 align="center">AWS Questionare</h1>
 	
       <div id="overlay">
@@ -76,12 +76,12 @@ button {
 
 <script>
 
-    function populateSelect() {
+    /*function populateSelect() {*/
 	
 		/*$('#trigger').click(function() {
       $('#overlay').fadeIn(1000);
    });*/
-
+$( document ).ready(function() {
    $('#close').click(function() {
       $('#overlay').fadeOut(300);
    });
