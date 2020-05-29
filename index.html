@@ -7,9 +7,11 @@
 //$('#popup1').popup();
 	var questions = [];
 $.getJSON( "data/questions.json", function( data){
-  questions = data;
-populateSelect();	
-});
+  questions = data;	
+}).done(function() {
+   alert( "json loaded" );	
+populateSelect();
+  });
 </script>
 </head>
 <style>
