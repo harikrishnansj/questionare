@@ -90,10 +90,10 @@ $( document ).ready(function() {
         // THE JSON ARRAY.		
 		
         var ele = document.getElementById('questionsDiv');
-	alert('alert2');
+	alert('alert2: '+questions.length);
 		var temp;
 		for (var j = 0; j < questions.length; j++) {
-			aler('Question: '+questions[j]["question"]);
+			//alert('Question: '+questions[j]["question"]);
 		ele.innerHTML = ele.innerHTML +
 		'<input type="hidden" id="correctAns'+j+'" name="correctAns'+j+'" value="'+questions[j]["Correct_Answers"]+'">'+
 		'<input type="hidden" id="needsImprvmntAns'+j+'" name="needsImprvmntAns'+j+'" value="'+questions[j]["Needs_Improvement_Answers"]+'">'+
@@ -107,6 +107,7 @@ $( document ).ready(function() {
 		temp = questions[j]['options'];
 		
 		ele = document.getElementById("sel"+j+"");
+			//alert('alert3: '+questions.length);
 			for (var i = 0; i < temp.length; i++) {
 				// POPULATE SELECT ELEMENT WITH JSON.
 				ele.innerHTML = ele.innerHTML +
