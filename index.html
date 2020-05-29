@@ -5,10 +5,11 @@
 	<!--<script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>-->
 	<script type="text/javascript">
 //$('#popup1').popup();
-	/*var questions = [];
+	var questions = [];
 $.getJSON( "data/questions.json", function( data){
   questions = data;
-});*/
+populateSelect();	
+});
 </script>
 </head>
 <style>
@@ -76,12 +77,12 @@ button {
 
 <script>
 
-   /* function populateSelect() {*/
+    function populateSelect() {
 	
 		/*$('#trigger').click(function() {
       $('#overlay').fadeIn(1000);
    });*/
-$( document ).ready(function() {
+/*$( document ).ready(function() {*/
 	alert('Hi*********************');
 	var questions = [];
 $.getJSON( "data/questions.json", function( data){
@@ -120,7 +121,7 @@ $.getJSON( "data/questions.json", function( data){
 			}
 		}
 	alert('alert3');
-    });
+    }//);
 	
 	function ifContains(toCheckArray, checkInArray){
 		for(var k = 0; k < toCheckArray.length; k++){
