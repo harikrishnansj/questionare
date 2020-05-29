@@ -77,25 +77,12 @@
       alert('alert2: '+questions.length);
       var temp;
       for (var j = 0; j < questions.length; j++) {
-      ele.innerHTML = ele.innerHTML +
-      '
-      <input type="hidden" id="correctAns'+j+'" name="correctAns'+j+'" value="'+questions[j]["Correct_Answers"]+'">'+
-      '
-      <input type="hidden" id="needsImprvmntAns'+j+'" name="needsImprvmntAns'+j+'" value="'+questions[j]["Needs_Improvement_Answers"]+'">'+
-      '
-      <input type="hidden" id="criticalImprvmntAns'+j+'" name="criticalImprvmntAns'+j+'" value="'+questions[j]["Critical_Improvement_Answers"]+'">'+
-      '
-      	<font face = "Verdana" size = "2" class="ex1">
-      		<br/>
-      		<br/>
-      		<br/>'+(j+1)+') '+questions[j]['question']+		
-      '
-      		<button id="trigger" onclick="show(document.getElementById(\'sel'+j+'\'),'+j+')">Validate</button>'+
-      	'
-      		<br/>
-      	</font>
-      	<select id="sel'+j+'")" multiple/>
-      	<br/>';
+      ele.innerHTML = ele.innerHTML + '<input type="hidden" id="correctAns'+j+'" name="correctAns'+j+'" value="'+questions[j]["Correct_Answers"]+'">'+
+      '<input type="hidden" id="needsImprvmntAns'+j+'" name="needsImprvmntAns'+j+'" value="'+questions[j]["Needs_Improvement_Answers"]+'">'+
+      '<input type="hidden" id="criticalImprvmntAns'+j+'" name="criticalImprvmntAns'+j+'" value="'+questions[j]["Critical_Improvement_Answers"]+'">'+
+      '<font face = "Verdana" size = "2" class="ex1"><br/><br/><br/>'+(j+1)+') '+questions[j]['question']+ 
+	  '<button id="trigger" onclick="show(document.getElementById(\'sel'+j+'\'),'+j+')">Validate</button>'+
+      	'<br/></font><select id="sel'+j+'")" multiple/><br/>';
       	
       }
       for (var j = 0; j < questions.length; j++) {
@@ -105,10 +92,7 @@
       for (var i = 0; i < temp.length; i++) {
       // POPULATE SELECT ELEMENT WITH JSON.
       ele.innerHTML = ele.innerHTML +
-      	'
-      	<option value="' + temp[i]['ID'] + '">
-      		<font face = "Verdana" size = "2">' + temp[i]['Option_Name'] + '</font>
-      	</option>';
+      	'<option value="' + temp[i]['ID'] + '"><font face = "Verdana" size = "2">' + temp[i]['Option_Name'] + '</font></option>';
       }
       }
       }
